@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemirbasApp", "DemirbasApp\DemirbasApp.csproj", "{1B40886C-EBF4-4E34-BAC1-223B75FC07FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemirbasData", "DemirbasData\DemirbasData.csproj", "{B7000A25-39CC-4DFA-B457-15136510EB0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B40886C-EBF4-4E34-BAC1-223B75FC07FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B40886C-EBF4-4E34-BAC1-223B75FC07FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B40886C-EBF4-4E34-BAC1-223B75FC07FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B40886C-EBF4-4E34-BAC1-223B75FC07FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7000A25-39CC-4DFA-B457-15136510EB0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7000A25-39CC-4DFA-B457-15136510EB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7000A25-39CC-4DFA-B457-15136510EB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7000A25-39CC-4DFA-B457-15136510EB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD4CC4EC-CC3C-4A3A-9C86-F0D6ADA06AA3}
+	EndGlobalSection
+EndGlobal

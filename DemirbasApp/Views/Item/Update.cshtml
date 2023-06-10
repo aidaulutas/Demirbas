@@ -1,0 +1,27 @@
+﻿@model DemirbasData.Model.Item
+
+<h1>Update</h1>
+<form method="post" action="Update" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="Description">
+    </div>
+   <div class="mb-3">
+        <label for="" class="form-label">Item Type</label>
+        @Html.DropDownListFor(x=>x.ItemTypeId, new SelectList(ViewBag.ItemTypes, "Id" , "Name"),"Please Choose Item Type", new { @class = "form-control", required = "required"})
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Serial Number</label>
+        <input type="text" class="form-control" asp-for="SerialNumber">
+    </div>
+  
+    <button type="submit" class="btn btn-primary"
+            asp-action="Update"
+            asp-controller="Item">
+        Update
+    </button>
+</form>

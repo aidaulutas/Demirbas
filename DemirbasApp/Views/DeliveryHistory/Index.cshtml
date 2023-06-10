@@ -1,0 +1,58 @@
+﻿@model List<DemirbasData.Model.DeliveryHistory>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Delivery History List</h2>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <table class="table table-bordered table table-striped my-2">
+            <thead>
+                <tr>
+                    <th>
+                        DeliveryDate
+                    </th>
+                    <th>
+                        ReturnDate
+                    </th>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        User Surname
+                    </th>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DeliveryDate</td>
+                        @if (item.ReturnDate.ToString() == "1.01.0001 00:00:00")
+                        {
+                            <td></td>
+                        }
+                        else
+                        {
+                            <td>@item.ReturnDate</td>
+                        }
+                        <td>@item.User.Name</td>
+                        <td>@item.User.Surname</td>
+                        <td>@item.Item.Name</td>
+                        <td>@item.Department.Name</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

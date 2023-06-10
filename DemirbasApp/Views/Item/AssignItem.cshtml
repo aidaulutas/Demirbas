@@ -1,0 +1,36 @@
+﻿@model List<DemirbasData.Model.User>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Assign User</h2>
+        </div>
+
+    </div>
+    <div class="row">
+        <table class="table table-bordered table table-striped my-2">
+            <thead>
+                <tr>
+                    <th>
+                        Users
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                        <td>
+                            <a href="@Url.Action("Assign","Item",new{Userid=item.Id,itemId=ViewBag.ItemId})" class="btn btn-primary">
+                                Assign
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
