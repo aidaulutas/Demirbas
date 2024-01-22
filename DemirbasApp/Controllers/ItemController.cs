@@ -16,7 +16,7 @@ namespace DemirbasApp.Controllers
 
         public IActionResult Index()
         {
-            var model = _context.Items.Include(x => x.User).Include(x => x.ItemType).Where(x => !x.IsDeleted).ToList();
+            var model = _context.Items.Include(x => x.Employee).Include(x => x.ItemType).Where(x => !x.IsDeleted).ToList();
             return View(model);
         }
         [HttpGet]
@@ -55,32 +55,50 @@ namespace DemirbasApp.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult UnassignedItemList() 
+        public IActionResult UnassignedItemList()
         {
-            var item = _context.Items.Include(x => x.ItemType).Where(x => x.UserId == null).ToList();
-            return View (item);
+            var item = _context.Items.Include(x => x.ItemType).Include(x => x.Employee).Where(x => x.EmployeeId == null).ToList();
+            return View(item);
+        }
+        [HttpGet]
+        public IActionResult AssignedItemList()
+        {
+            var item = _context.Items.Include(x => x.ItemType).Include(x=> x.Employee).Where(x => x.EmployeeId != null).ToList();
+            _context.SaveChanges();
+            return View(item);
         }
         [HttpGet]
         public IActionResult AssignItem(int id)
         {
-            var user = _context.Users.Where(x => !x.IsDeleted).ToList();
+            var employee = _context.Employees.Where(x => !x.IsDeleted).ToList();
             ViewBag.ItemId = id;
-            return View (user);
+            return View(employee);
         }
         [HttpGet]
-        public IActionResult Assign(int Userid,int itemId)
+        public IActionResult Assign(int Employeeid, int itemId)
         {
-            var findItem = _context.Items.FirstOrDefault(x => x.Id == itemId).UserId = Userid;
+            var findItem = _context.Items.FirstOrDefault(x => x.Id == itemId).EmployeeId = Employeeid;
             var deliverHistory = new DeliveryHistory()
             {
                 DeliveryDate = DateTime.Now,
                 ItemId = itemId,
-                UserId = Userid,
-                DepartmentId = _context.Users.Find(Userid).DepartmentId
+                EmployeeId = Employeeid,
+                DepartmentId = _context.Employees.Find(Employeeid).DepartmentId
             };
             _context.DeliveryHistories.Add(deliverHistory);
             _context.SaveChanges();
             return RedirectToAction("UnassignedItemList");
+
+        }
+        [HttpGet]
+        public IActionResult Unassign(int Employeeid, int itemId)
+        {
+            
+            var item = _context.Items.Find(itemId).EmployeeId = null;
+            var deliverHistory = _context.DeliveryHistories.FirstOrDefault(x => x.Id == itemId && x.EmployeeId == Employeeid).ReturnDate= DateTime.Now;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
 
         }
 

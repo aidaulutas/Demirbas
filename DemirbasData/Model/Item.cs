@@ -13,7 +13,7 @@ namespace DemirbasData.Model
         public ItemType ItemType { get; set; }
         public int? ItemTypeId { get; set; }
         public string SerialNumber { get; set; }
-        public User User { get; set; }
-        public int? UserId { get; set; }
+        public Employee Employee { get; set; }
+        public int? EmployeeId { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace DemirbasApp.Controllers
 
         public IActionResult Index()
         {
-            var model = _context.DeliveryHistories.Include(x=> x.User).Include(x=> x.Item).Include(x=> x.Department).Where(x=> !x.IsDeleted).ToList();
+            var model = _context.DeliveryHistories.Include(x=> x.Employee).Include(x=> x.Item).Include(x=> x.Department).Where(x=> !x.IsDeleted).ToList();
             return View(model);
         }
        

@@ -1,0 +1,81 @@
+﻿@model List<DemirbasData.Model.Item>
+
+<div class="container">
+   <div class="container">
+        <a href="javascript:history.back()" class="btn btn-warning" style="border-radius: 50px;">
+            <i class="fas fa-chevron-left"></i> Go Back
+        </a>
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1></h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Assigned Item List</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Assigned Item List</h2>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <table class="table table-bordered table table-striped my-2">
+            <thead>
+                <tr>
+                    <th>
+                        Item Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Employee
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Serial Number
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        @* @if (item.EmployeeId != null)
+                    {
+                    <td>@item.Employee.Name</td>
+                    }*@
+                        @*else
+                    {*@
+                        <td>Assigned</td>
+                        @*}*@
+                        <td>@item.ItemType.Name</td>
+                        <td>@item.SerialNumber</td>
+                        <td>
+
+                            <a asp-controller="Item" asp-action="Unassign" asp-route-itemId="@item.Id" asp-route-Employeeid="@item.EmployeeId" class="btn btn-outline-danger">
+                                <i class="fas fa-minus"></i>
+                                Unassign
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -10,7 +10,8 @@ namespace DemirbasData.Model
     public class ItemType : BaseEntity
     {
         public string Name { get; set; }
-      
+
+        public string Description { get; set; }
         public List<Item> Item { get; set; }
     }
 }

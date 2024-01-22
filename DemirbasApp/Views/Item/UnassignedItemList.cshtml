@@ -1,11 +1,29 @@
 ﻿@model List<DemirbasData.Model.Item>
 
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h2>Unassigned Item List</h2>
+    <div class="container">
+        <a href="javascript:history.back()" class="btn btn-warning" style="border-radius: 50px;">
+            <i class="fas fa-chevron-left"></i> Go Back
+        </a>
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1></h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Unassigned Item List</li>
+                </ol>
+            </div>
         </div>
-        
+    </div><!-- /.container-fluid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Unassigned Item List</h2>
+            </div>
+
         </div>
     </div>
     <div class="row">
@@ -20,7 +38,7 @@
                         Description
                     </th>
                     <th>
-                        User
+                        Employee
                     </th>
                     <th>
                         Type
@@ -36,9 +54,9 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>@item.Description</td>
-                        @if (item.UserId != null)
+                        @if (item.EmployeeId != null)
                         {
-                            <td>@item.User.Name</td>
+                            <td>@item.Employee.Name</td>
                         }
                         else
                         {
@@ -48,10 +66,11 @@
                         <td>@item.SerialNumber</td>
                         <td>
 
-                        <a asp-controller="Item" asp-action="AssignItem" asp-route-id="@item.Id" class="btn btn-primary">
+                            <a asp-controller="Item" asp-action="AssignItem" asp-route-id="@item.Id" class="btn btn-warning default">
+                                <i class="fas fa-plus"></i>
                                 Assign
                             </a>
-                           
+
                         </td>
                     </tr>
                 }

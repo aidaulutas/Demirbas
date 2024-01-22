@@ -1,10 +1,30 @@
 ﻿@model DemirbasData.Model.Department
 
-<h1>Create</h1>
-<form method="post" action="Create" class="mt-5">
-    <div class="mb-3">
-        <label for="" class="form-label">Name</label>
-        <input type="text" class="form-control" asp-for="Name">   
-    </div>    
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="container">
+    <div class="container">
+        <a href="javascript:history.back()" class="btn btn-warning" style="border-radius: 50px;">
+            <i class="fas fa-chevron-left"></i> Go Back
+        </a>
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1></h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Department</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+        <div class="container mt-4">
+            <h1>Create</h1>
+            <form method="post" action="Create" class="mt-5">
+                <div class="mb-3">
+                    <label for="" class="form-label">Name</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <button type="submit" class="btn btn-success active">Submit</button>
+            </form>
+        </div>

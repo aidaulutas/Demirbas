@@ -1,4 +1,6 @@
-﻿using DemirbasData.Model;
+﻿using DemirbasData.Identity;
+using DemirbasData.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,17 +10,20 @@ using System.Threading.Tasks;
 
 namespace DemirbasData.DataContext
 {
-    public class DemirbasContext : DbContext
+    public class DemirbasContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
-        public DemirbasContext(DbContextOptions options) : base(options)
+        private readonly DbContextOptions _options;
+        public DemirbasContext(DbContextOptions<DemirbasContext> options) : base(options)
         {
-
+            _options = options;
         }
+
         public DbSet<Item> Items { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Employee> Employees { get; set; }
         public DbSet<DeliveryHistory> DeliveryHistories { get; set;}
         public DbSet<ItemType> ItemTypes { get; set; }
+        public DbSet<Return> Returns { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

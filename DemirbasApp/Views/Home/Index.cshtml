@@ -1,50 +1,91 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Home Page</h1>
+<link href="~/css/home.css" rel="stylesheet" />
+
+
+<div class="container-fluid d-flex flex-column justify-content-between align-items-center" style="height: 100%;">
+    <form asp-area="Identity" asp-page="/Account/Logout" class="mt-auto">
+        <button class="btn btn-outline-danger btn-sm rounded-pill" type="submit"><i class="fa fa-sign-out"></i> Çıkış Yap</button>
+    </form>
+</div>
+    <div class="row">
+        @*ITEM*@
+        <div class="col-sm">
+           
+            <a href="@Url.Action("Index","Item")" class="nav-link">
+                 <div class="card text-center mt-3 card-height shadow scale" id="image1">
+               <div class="card-body" style="background-image:url('/images/item_type.jpg'); background-position:right; background-size:cover; cursor:pointer">
+                    <div>
+                        <h3 class="card-title">ITEM</h3>
+                        <hr />
+                            <h6 class="card-title">• Create Item</h6>
+                        <h6 class="card-title">• Assigned Item List</h6>
+                        <h6     class="card-title">• Unassigned Item List </h6>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        @*ITEm TYPE*@
+        <div class="col-sm">
+
+            <a href="@Url.Action("Index","ItemType")" class="nav-link">
+                <div class="card text-center mt-3 card-height shadow scale" id="image2">
+                <div class="card-body" style="background-image:url('/images/item_type2.png'); background-position:top; background-size:cover; cursor:pointer">
+                    <div>
+                        <h3 class="card-title">ITEM TYPE</h3>
+                        <hr />
+                            <h6 class="card-title">• Item Type List </h6>
+                        <h6 class="card-title">• Create Item Type </h6>
+                    </div>                  
+                </div>
             </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Home Page</li>
-                </ol>
+            </a>
+        </div>
+        @*EMPLOYEE*@
+        <div class="col-sm">
+            <a href="@Url.Action("Index","Employee")" class="nav-link">                           
+            <div class="card text-center mt-3 card-height shadow scale" id="image4">
+                <div class="card-body" style="background-image:url('/images/employee3.png'); background-position:center; background-size:inherit; cursor:pointer">
+                    <div>
+                        <h3 class="card-title">EMPLOYEE</h3>
+                        <hr />
+                            <h6 class="card-title">• Employee List</h6>
+                        <h6 class="card-title">• Create Employee</h6>
+                    </div>
+                </div>
             </div>
+            </a>
         </div>
-    </div><!-- /.container-fluid -->
-</section>
-<section class="content">
-
-    <!-- Default box -->
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Title</h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                </button>
+        @*DEMPARTMENT*@
+        <div class="col-sm">
+            <a href="@Url.Action("Index","Department")" class="nav-link">
+            <div class="card text-center mt-3 card-height shadow scale" id="image6">
+                <div class="card-body" style="background-image:url('/images/department.jpg'); background-position:right; background-size:cover; cursor:pointer">
+                    <div>
+                        <h3 class="card-title">DEPARTMENT</h3>
+                        <hr />
+                            <h6 class="card-title">• Department List </h6>
+                        <h6 class="card-title">• Create Department</h6>
+                    </div>
+                </div>
             </div>
+            </a>
         </div>
-        <div class="card-body">
-            Start creating your amazing application!
+        @*DELIVERY HISTORY*@
+        <div class="col-sm">
+            <a href="@Url.Action("Index","DeliveryHistory")" class="nav-link">
+            <div class="card text-center mt-3 card-height shadow scale" id="image3">
+                <div class="card-body" style="background-image:url('/images/history_delivery.jpg'); background-position:left; background-size:cover; cursor:pointer">
+                    <div>
+                        <h3 class="card-title">DELIVERY HISTORY</h3>
+                        <hr />
+                        <h6 class="card-title">• Delivery History </h6>
+                    </div>
+                </div>
+            </div>
+            </a>
         </div>
-        <div class="text-center">
-            <h1 class="display-4">Welcome To Demirbas Application</h1>
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-            Footer
-        </div>
-        <!-- /.card-footer-->
-    </div>
-    <!-- /.card -->
 
-</section>
+<script src="~/jQuery/pages/home.js"></script>
